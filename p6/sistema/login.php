@@ -12,7 +12,7 @@ $alert = '';
             $user = $_POST['usuario'];
             $pass = $_POST['clave'];
             $query = mysqli_query($conection, "SELECT * FROM users_admin WHERE username = '$user' AND password = '$pass'");
-            $result = mysql_num_rows($query);
+            $result = mysqli_num_rows($query);
 
             if($result > 0)
             {
