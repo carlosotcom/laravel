@@ -9,9 +9,9 @@
 	<header>
 		<div class="header">
 			
-			<h1>Sistema Facturación</h1>
+			<h1>Centro educativo</h1>
 			<div class="optionsBar">
-				<p>Guatemala, 20 noviembre de 2017</p>
+				<p>España, 30 Octubre de 2020</p>
 				<span>|</span>
 				<span class="user">Ejemplo usuario</span>
 				<img class="photouser" src="img/user.png" alt="Usuario">
@@ -22,38 +22,31 @@
 			<ul>
 				<li><a href="#">Inicio</a></li>
 				<li class="principal">
-					<a href="#">Usuarios</a>
+					<a href="#">Usuario administrador</a>
 					<ul>
-						<li><a href="#">Nuevo Usuario</a></li>
-						<li><a href="#">Lista de Usuarios</a></li>
+						<li><a href="#">Nuevo Usuario administrador</a></li>
+						<li><a href="#">Lista de Usuarios administradores</a></li>
 					</ul>
 				</li>
 				<li class="principal">
-					<a href="#">Clientes</a>
+					<a href="#">Profesor</a>
 					<ul>
-						<li><a href="#">Nuevo Cliente</a></li>
-						<li><a href="#">Lista de Clientes</a></li>
+						<li><a href="#">Nuevo profesor</a></li>
+						<li><a href="#">Lista de Profesores</a></li>
 					</ul>
 				</li>
 				<li class="principal">
-					<a href="#">Proveedores</a>
+					<a href="#">Cursos</a>
 					<ul>
-						<li><a href="#">Nuevo Proveedor</a></li>
-						<li><a href="#">Lista de Proveedores</a></li>
+						<li><a href="#">Nuevo Curso</a></li>
+						<li><a href="#">Lista de Cursos</a></li>
 					</ul>
 				</li>
 				<li class="principal">
-					<a href="#">Productos</a>
+					<a href="#">Asignaturas</a>
 					<ul>
-						<li><a href="#">Nuevo Producto</a></li>
-						<li><a href="#">Lista de Productos</a></li>
-					</ul>
-				</li>
-				<li class="principal">
-					<a href="#">Facturas</a>
-					<ul>
-						<li><a href="#">Nuevo Factura</a></li>
-						<li><a href="#">Facturas</a></li>
+						<li><a href="#">Nueva asignatura</a></li>
+						<li><a href="#">Lista de asignaturas</a></li>
 					</ul>
 				</li>
 			</ul>
