@@ -4,7 +4,7 @@
 			
 			<h1>Centro educativo</h1>
 			<div class="optionsBar">
-				<p>España, 30 Octubre de 2020</p>
+				<p>España, <?php echo fechaC(); ?></p>
 				<span>|</span>
 				<span class="user">Ejemplo usuario</span>
 				<img class="photouser" src="img/user.png" alt="Usuario">
