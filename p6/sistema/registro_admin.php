@@ -1,3 +1,41 @@
+<?php 
+
+    if(!empty($_POST))
+    {
+        $alert='';
+        if(empty($_POST['nombre']) || empty($_POST['apellido']) || empty($_POST['dni']) || empty($_POST['email'])
+        || empty($_POST['password']) || empty($_POST['password']))
+        {
+            $alert='<p class="msg_error">Todos los campos son obligatorios</p>';
+        }else{
+            include "../conexion.php";
+            $nombre = $_POST['nombre'];
+            $apellidos = $_POST['apellido'];
+            $dni = $_POST['dni'];
+            $correo = $_POST['email'];
+            $nomusuario = $_POST['username'];
+            $pass = md5($_POST['password']);
+
+            //echo "SELECT * FROM users_admin WHERE dni = '$dni' ";
+            $query = mysqli_query($conection,"SELECT * FROM users_admin WHERE dni = '$dni' ");
+            $result = mysqli_fetch_array($query);
+
+            if(result > 0){
+                $alert= '<p class="msg_error">El usuario ya existe<*p>';
+            }else{
+                $query_insert = mysqli_query($conection, "INSERT INTO users_admin(username,name,surname,dni,email,password) 
+                VALUES('$nomusuario','$nombre','$apellidos','$dni','$correo','$pass')");
+
+                if($query_insert){
+                    $alert='<p class="msg_save">Ususario creado</p>';
+                }else{
+                    $alert='<p class="msg_error">Error al crear el usuario</p>';
+                }
+            }
+        }
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,8 +49,9 @@
 		<div class="form_register">
             <h1>Registro de Usuario</h1>
             <hr>
-            <div class="alert"><p>Error</p></div>
-            <form>
+            <div class="alert"><?php echo isset($alert) ? $alert :''; ?></div>
+
+            <form action="" method="post">
             <label for="nombre">Nombre</label>
             <input type="text" name="nombre" id="nombre" placeholder="Nombre">
             <label for="apellido">Apellido</label>
@@ -21,6 +60,8 @@
             <input type="text" name="dni" id="dni" placeholder="dni">
             <label for="email">Email</label>
             <input type="email" name="email" id="email" placeholder="email">
+            <label for="username">Nombre de usuario</label>
+            <input type="text" name="username" id="username" placeholder="Nombre de usuario">
             <label for="password">Contraseña</label>
             <input type="password" name="password" id="password" placeholder="password">
             <input type="submit" value="Crear nuevo Administrador" class="btn_save">
