@@ -17,6 +17,12 @@
             <input type="text" name="nombre" id="nombre" placeholder="Nombre">
             <label for="apellido">Apellido</label>
             <input type="text" name="apellido" id="apellido" placeholder="Apellido">
+            <label for="dni">DNI</label>
+            <input type="text" name="dni" id="dni" placeholder="dni">
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" placeholder="email">
+            <label for="password">Contraseña</label>
+            <input type="password" name="password" id="password" placeholder="password">
 
 
 
