@@ -4,9 +4,9 @@
     {
         $alert='';
         if(empty($_POST['nombre']) || empty($_POST['apellido']) || empty($_POST['dni']) || empty($_POST['email'])
-        || empty($_POST['password']) || empty($_POST['password']))
+        || empty($_POST['username']) || empty($_POST['password']))
         {
-            $alert='<p class="msg_error">Todos los campos son obligatorios</p>';
+            $alert='<p class="msg_error">Todos los campos son obligatorios</p>';// funciona bien
         }else{
             include "../conexion.php";
             $nombre = $_POST['nombre'];
@@ -17,17 +17,16 @@
             $pass = md5($_POST['password']);
 
             //echo "SELECT * FROM users_admin WHERE dni = '$dni' ";
-            $query = mysqli_query($conection,"SELECT * FROM users_admin WHERE dni = '$dni' ");
+            $query = mysqli_query($conection,"SELECT * FROM users_admin WHERE dni = '$dni' OR email ='$correo' OR password = '$pass' ");
             $result = mysqli_fetch_array($query);
-
-            if(result > 0){
-                $alert= '<p class="msg_error">El usuario ya existe<*p>';
+            if($result > 0){
+                $alert= '<p class="msg_error">El usuario ya existe.</p>';//no me funciona ya que duplica las entradas
             }else{
                 $query_insert = mysqli_query($conection, "INSERT INTO users_admin(username,name,surname,dni,email,password) 
                 VALUES('$nomusuario','$nombre','$apellidos','$dni','$correo','$pass')");
 
                 if($query_insert){
-                    $alert='<p class="msg_save">Ususario creado</p>';
+                    $alert='<p class="msg_save">Usuario creado</p>';
                 }else{
                     $alert='<p class="msg_error">Error al crear el usuario</p>';
                 }
