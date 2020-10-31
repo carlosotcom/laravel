@@ -6,7 +6,8 @@
 	margin: auto;
 }
 .form_register h1{
-	color: #3c93b0;
+    color: #3c93b0;
+    text-align: center;
 	}
 	hr{
 		border: 0;
@@ -60,3 +61,4 @@
     .alert p{
         padding: 10px;
     }
+   

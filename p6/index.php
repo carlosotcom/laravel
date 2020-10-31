@@ -56,6 +56,7 @@ if(!empty($_SESSION['active'])) //si la sesion es true nos dirige a la pagina de
         <input type="password" name="clave" placeholder="Contraseña">
         <div class="alert"><?php  echo isset($alert)? $alert : ''; ?></div>
         <input type="submit" value="INGRESAR">
+        <p class="regtext">No estas registrado? <a href="sistema/registro.php" >Registrate Aquí</a>!</p>
         </form>
     </section>
 </body>
