@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<?php include "includes/scripts.php"; ?>
+    <?php include "includes/scripts.php"; ?>
 	<title>Registro Usuario</title>
 </head>
 <body>
@@ -11,7 +11,7 @@
 		<div class="form_register">
             <h1>Registro de Usuario</h1>
             <hr>
-            <div class="alert"></div>
+            <div class="alert"><p>Error</p></div>
             <form>
             <label for="nombre">Nombre</label>
             <input type="text" name="nombre" id="nombre" placeholder="Nombre">
@@ -23,20 +23,10 @@
             <input type="email" name="email" id="email" placeholder="email">
             <label for="password">Contraseña</label>
             <input type="password" name="password" id="password" placeholder="password">
-
-
-
-
+            <input type="submit" value="Crear nuevo Administrador" class="btn_save">
             </form>
         </div>
-
-
-
 	</section>
-
-
-
-	
 	<?php include "includes/footer.php"; ?>
 </body>
 </html>
