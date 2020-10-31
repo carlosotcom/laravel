@@ -4,7 +4,7 @@
 				<li class="principal">
 					<a href="#">Usuario administrador</a>
 					<ul>
-						<li><a href="../registro_admin.php">Nuevo Usuario administrador</a></li>
+						<li><a href="../sistema/registro_admin.php">Nuevo Usuario administrador</a></li>
 						<li><a href="#">Lista de Usuarios administradores</a></li>
 					</ul>
 				</li>
