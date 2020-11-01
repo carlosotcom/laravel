@@ -22,7 +22,7 @@
             if($result > 0){
                 $alert= '<p class="msg_error">El usuario ya existe.</p>';//no me funciona ya que duplica las entradas
             }else{
-                $query_insert = mysqli_query($conection, "INSERT INTO users_admin(username,name,surname,dni,email,password) 
+                $query_insert = mysqli_query($conection, "INSERT INTO users_admin(username,name,surname,dni,email,pass) 
                 VALUES('$nomusuario','$nombre','$apellidos','$dni','$correo','$pass')");
 
                 if($query_insert){
