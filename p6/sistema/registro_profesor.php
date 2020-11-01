@@ -16,8 +16,7 @@
             $correo = $_POST['username'];
 
             //echo "SELECT * FROM users_admin WHERE dni = '$dni' ";
-            $query = mysqli_query($conection,"SELECT * FROM teachers WHERE name = '$nombre' OR surname ='$apellido' OR telephone = '$tel' 
-            OR nif= '$dni' OR email = '$correo' ");
+            $query = mysqli_query($conection,"SELECT * FROM teachers WHERE  telephone = '$tel' OR nif= '$dni' ");
             $result = mysqli_fetch_array($query);
             if($result > 0){
                 $alert= '<p class="msg_error">El profesor ya existe.</p>';//no me funciona ya que duplica las entradas
