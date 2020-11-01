@@ -37,7 +37,6 @@
 <head>
 	<meta charset="UTF-8">
     <?php include "includes/scripts.php"; ?>
-    
 	<title>Registro curso</title>
 </head>
 <body>
@@ -54,9 +53,9 @@
             <label for="descripcion del curso">Descripcion</label>
             <input type="text" name="descripcion" id="descripcion" placeholder="Descripcion">
             <label for="start">Start date:</label>
-            <input type="date" id="start" name="start" value="2018-07-22" min="2020-01-01" max="2020-12-31">
+            <input type="date" id="start" name="start" value="2020-01-01" min="2020-01-01" max="2020-12-31">
             <label for="start">Start date:</label>
-            <input type="date" id="finish" name="finish" value="2018-07-22" min="2020-01-01" max="2020-12-31">
+            <input type="date" id="finish" name="finish" value="2020-01-12" min="2020-01-01" max="2020-12-31">
             <label class="radio">Activar curso
                 <input type="radio" checked="checked" name="radio">
                 <span class="check"></span>
