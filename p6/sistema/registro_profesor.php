@@ -11,9 +11,9 @@
             include "../conexion.php";
             $nombre = $_POST['nombre'];
             $apellido = $_POST['apellido'];
-            $tel = $_POST['dni'];
-            $dni = $_POST['email'];
-            $correo = $_POST['username'];
+            $tel = $_POST['telefono'];
+            $dni = $_POST['dni'];
+            $correo = $_POST['email'];
 
             //echo "SELECT * FROM users_admin WHERE dni = '$dni' ";
             $query = mysqli_query($conection,"SELECT * FROM teachers WHERE  telephone = '$tel' OR nif= '$dni' ");
