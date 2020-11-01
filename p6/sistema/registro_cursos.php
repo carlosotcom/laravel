@@ -3,18 +3,18 @@
     if(!empty($_POST))
     {
         $alert='';
-        if(empty($_POST['nombrecurso']) || empty($_POST['descripcion']) || empty($_POST['trip-start']) || empty($_POST['trip-finish']))
+        if(empty($_POST['nombrecurso']) || empty($_POST['descripcion']) || empty($_POST['start']) || empty($_POST['finish']))
         {
             $alert='<p class="msg_error">Todos los campos son obligatorios</p>';// funciona bien
         }else{
             include "../conexion.php";
             $nombre = $_POST['nombrecurso'];
             $descripcion = $_POST['descripcion'];
-            $fechainicio = $_POST['trip-start'];
-            $fechafin = $_POST['trip-finish'];
+            $fechainicio = $_POST['start'];
+            $fechafin = $_POST['finish'];
 
             //echo "SELECT * FROM users_admin WHERE dni = '$dni' ";
-            $query = mysqli_query($conection,"SELECT * FROM courses WHERE name = '$dni' OR description ='$correo' OR date_start = '$pass'  OR date_end = '$pass' ");
+            $query = mysqli_query($conection,"SELECT * FROM courses WHERE name = '$nombre' OR description ='$description' OR date_start = '$start'  OR date_end = '$finish' ");
             $result = mysqli_fetch_array($query);
             if($result > 0){
                 $alert= '<p class="msg_error">El curso ya existe.</p>';//no me funciona ya que duplica las entradas
@@ -54,9 +54,9 @@
             <label for="descripcion del curso">Descripcion</label>
             <input type="text" name="descripcion" id="descripcion" placeholder="Descripcion">
             <label for="start">Start date:</label>
-            <input type="date" id="start" name="trip-start" value="2018-07-22" min="2020-01-01" max="2020-12-31">
+            <input type="date" id="start" name="start" value="2018-07-22" min="2020-01-01" max="2020-12-31">
             <label for="start">Start date:</label>
-            <input type="date" id="finish" name="trip-finish" value="2018-07-22" min="2020-01-01" max="2020-12-31">
+            <input type="date" id="finish" name="finish" value="2018-07-22" min="2020-01-01" max="2020-12-31">
             <label class="radio">Activar curso
                 <input type="radio" checked="checked" name="radio">
                 <span class="check"></span>
