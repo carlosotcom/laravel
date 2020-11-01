@@ -3,32 +3,29 @@
     if(!empty($_POST))
     {
         $alert='';
-        if(empty($_POST['nombre']) || empty($_POST['apellido']) || empty($_POST['dni']) || empty($_POST['email'])
-        || empty($_POST['username']) || empty($_POST['password']))
+        if(empty($_POST['nombrecurso']) || empty($_POST['descripcion']) || empty($_POST['trip-start']) || empty($_POST['trip-finish']))
         {
             $alert='<p class="msg_error">Todos los campos son obligatorios</p>';// funciona bien
         }else{
             include "../conexion.php";
-            $nombre = $_POST['nombre'];
-            $apellidos = $_POST['apellido'];
-            $dni = $_POST['dni'];
-            $correo = $_POST['email'];
-            $nomusuario = $_POST['username'];
-            $pass = md5($_POST['password']);
+            $nombre = $_POST['nombrecurso'];
+            $descripcion = $_POST['descripcion'];
+            $fechainicio = $_POST['trip-start'];
+            $fechafin = $_POST['trip-finish'];
 
             //echo "SELECT * FROM users_admin WHERE dni = '$dni' ";
-            $query = mysqli_query($conection,"SELECT * FROM users_admin WHERE dni = '$dni' OR email ='$correo' OR password = '$pass' ");
+            $query = mysqli_query($conection,"SELECT * FROM courses WHERE name = '$dni' OR description ='$correo' OR date_start = '$pass'  OR date_end = '$pass' ");
             $result = mysqli_fetch_array($query);
             if($result > 0){
-                $alert= '<p class="msg_error">El usuario ya existe.</p>';//no me funciona ya que duplica las entradas
+                $alert= '<p class="msg_error">El curso ya existe.</p>';//no me funciona ya que duplica las entradas
             }else{
-                $query_insert = mysqli_query($conection, "INSERT INTO users_admin(username,name,surname,dni,email,password) 
-                VALUES('$nomusuario','$nombre','$apellidos','$dni','$correo','$pass')");
+                $query_insert = mysqli_query($conection, "INSERT INTO courses(name,description,date_start,date_end) 
+                VALUES('$nombre','$descripcion','$fechainicio','$fechafin')");
 
                 if($query_insert){
-                    $alert='<p class="msg_save">Usuario creado</p>';
+                    $alert='<p class="msg_save">Curso creado</p>';
                 }else{
-                    $alert='<p class="msg_error">Error al crear el usuario</p>';
+                   $alert='<p class="msg_error">Error al crear el curso</p>';
                 }
             }
         }
@@ -40,6 +37,7 @@
 <head>
 	<meta charset="UTF-8">
     <?php include "includes/scripts.php"; ?>
+    
 	<title>Registro curso</title>
 </head>
 <body>
@@ -51,19 +49,19 @@
             <div class="alert"><?php echo isset($alert) ? $alert :''; ?></div>
 
             <form action="" method="post">
-            <label for="nombre">Nombre</label>
-            <input type="text" name="nombre" id="nombre" placeholder="Nombre">
-            <label for="apellido">Apellido</label>
-            <input type="text" name="apellido" id="apellido" placeholder="Apellido">
-            <label for="dni">DNI</label>
-            <input type="text" name="dni" id="dni" placeholder="dni">
-            <label for="email">Email</label>
-            <input type="email" name="email" id="email" placeholder="email">
-            <label for="username">Nombre de usuario</label>
-            <input type="text" name="username" id="username" placeholder="Nombre de usuario">
-            <label for="password">Contraseña</label>
-            <input type="password" name="password" id="password" placeholder="password">
-            <input type="submit" value="Crear nuevo Administrador" class="btn_save">
+            <label for="nombrecurso">Nombre del curso</label>
+            <input type="text" name="nombrecurso" id="nombrecurso" placeholder="Nombre del curso">
+            <label for="descripcion del curso">Descripcion</label>
+            <input type="text" name="descripcion" id="descripcion" placeholder="Descripcion">
+            <label for="start">Start date:</label>
+            <input type="date" id="start" name="trip-start" value="2018-07-22" min="2020-01-01" max="2020-12-31">
+            <label for="start">Start date:</label>
+            <input type="date" id="finish" name="trip-finish" value="2018-07-22" min="2020-01-01" max="2020-12-31">
+            <label class="radio">Activar curso
+                <input type="radio" checked="checked" name="radio">
+                <span class="check"></span>
+            </label>
+            <input type="submit" value="Crear nuevo curso" class="btn_save">
             </form>
         </div>
 	</section>
