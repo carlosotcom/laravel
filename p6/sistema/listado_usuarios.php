@@ -3,10 +3,6 @@ include "../conexion.php";
 
 
 ?>
-
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -41,7 +37,7 @@ include "../conexion.php";
                     <td><?php echo $data["dni"] ?></td>
                     <td><?php echo $data["email"] ?></td>
                     <td>
-                        <a class="link_edit" href="#">Editar</a>
+                        <a class="link_edit" href="edit_admin.php">Editar</a>
                         |
                         <a class="link_delete" href="#">Eliminar</a>
                     </td>
