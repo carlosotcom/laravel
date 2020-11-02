@@ -22,7 +22,7 @@
             $query = mysqli_query($conection,"SELECT * FROM students WHERE nif = '$dni' OR email = '$correo' OR telephone = '$tel' ");
             $result = mysqli_fetch_array($query);
             if($result > 0){
-                $alert= '<p class="msg_error">El curso ya existe.</p>';//no me funciona ya que duplica las entradas
+                $alert= '<p class="msg_error">El alumno ya existe.</p>';//no me funciona ya que duplica las entradas
             }else{
                 $query_insert = mysqli_query($conection, "INSERT INTO students(username,pass,email,name,surname,telephone,nif,date_registered) 
                 VALUES('$user','$pass','$correo','$nombre','$apellido','$tel','$dni','$fecharegistro')");

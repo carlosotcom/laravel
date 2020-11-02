@@ -1,5 +1,5 @@
 <?php 
-
+    
     if(!empty($_POST))
     {
         $alert='';
@@ -18,17 +18,18 @@
 
             //echo "SELECT * FROM users_admin WHERE dni = '$dni' ";
             $query = mysqli_query($conection,"SELECT * FROM users_admin WHERE dni = '$dni' OR email ='$correo' OR password = '$pass' ");
+            $query_teachers = mysqli_query($mysqli, "SELECT id_teacher, name FROM teachers");
             $result = mysqli_fetch_array($query);
             if($result > 0){
-                $alert= '<p class="msg_error">El usuario ya existe.</p>';//no me funciona ya que duplica las entradas
+                $alert= '<p class="msg_error">La asignatura ya existe.</p>';//no me funciona ya que duplica las entradas
             }else{
                 $query_insert = mysqli_query($conection, "INSERT INTO users_admin(username,name,surname,dni,email,password) 
                 VALUES('$nomusuario','$nombre','$apellidos','$dni','$correo','$pass')");
 
                 if($query_insert){
-                    $alert='<p class="msg_save">Usuario creado</p>';
+                    $alert='<p class="msg_save">Asignatura creada</p>';
                 }else{
-                    $alert='<p class="msg_error">Error al crear el usuario</p>';
+                    $alert='<p class="msg_error">Error al crear la asignatura</p>';
                 }
             }
         }
@@ -51,19 +52,24 @@
             <div class="alert"><?php echo isset($alert) ? $alert :''; ?></div>
 
             <form action="" method="post">
-            <label for="nombre">Nombre</label>
-            <input type="text" name="nombre" id="nombre" placeholder="Nombre">
-            <label for="apellido">Apellido</label>
-            <input type="text" name="apellido" id="apellido" placeholder="Apellido">
-            <label for="dni">DNI</label>
-            <input type="text" name="dni" id="dni" placeholder="dni">
-            <label for="email">Email</label>
-            <input type="email" name="email" id="email" placeholder="email">
-            <label for="username">Nombre de usuario</label>
-            <input type="text" name="username" id="username" placeholder="Nombre de usuario">
-            <label for="password">Contraseña</label>
-            <input type="password" name="password" id="password" placeholder="password">
-            <input type="submit" value="Crear nuevo Administrador" class="btn_save">
+            <label for="nombreasig">Nombre de la asignatura</label>
+            <input type="text" name="nombreasig" id="nombreasig" placeholder="Nombre de la asignatura">
+            <label for="favcolor">Select el color de la asignatura</label>
+            <input type="color" id="favcolor" name="favcolor" value="#ff0000"><br><br>
+            <label for="profesor">Profesor</label>
+            <select name="sel_profe">
+            <?php 
+                 while($datos = mysqli_fetch_array($query_teachers))
+                    {
+            ?>
+                     <option value="1"><?php echo $datos['name']?></option>
+            <?php
+                    }
+            ?>
+            </select>
+
+
+            <input type="submit" value="Crear nueva asignatura" class="btn_save">
             </form>
         </div>
 	</section>
